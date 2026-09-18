@@ -55,9 +55,26 @@ Then add to `README.md`, pointing at your own deployment:
 
 ## Editing the README
 
-- `assets/header.svg` — hand-written animated banner (scrolling EEG trace, moving road dashes,
-  blinking cursor). SMIL animation, no scripts, so GitHub renders it fine. Edit the text nodes
-  near the bottom of the file to change the name/subtitle.
-- `assets/divider.svg` — animated section rule.
-- Prose inside `<td>` cells must stay on **one line per paragraph**; GitHub turns source line
+The three animated SVGs are generated, not hand-edited:
+
+```bash
+python3 tools/gen_assets.py     # rewrites assets/boot.svg, divider.svg, ae86.svg
+```
+
+- `boot.svg` — the terminal: falling code rain, boot lines that type in, the name with a
+  phosphor glow and a chromatic ghost, a sweeping scan bar and a tracking tear. Edit the
+  `lines = [...]` list in `tools/gen_assets.py` to change what boots.
+- `ae86.svg` — ASCII car, speed lines, moving road. The art is the `CAR` list in the generator.
+- `divider.svg` — the running dashes between sections.
+
+Notes for future edits:
+
+- Animation is **SMIL only** (`<animate>`, `<animateTransform>`), no CSS and no `<script>`,
+  which is what keeps it animating through GitHub's image proxy.
+- Don't add a radial-gradient vignette over the screen. It was tried; Chrome renders it far
+  darker than its stops suggest and it crushes the phosphor text to near-black. The scanline
+  pattern alone carries the CRT look.
+- Prose inside `<td>` cells must stay on **one line per paragraph** — GitHub turns source line
   breaks inside HTML table cells into `<br>` and the text breaks mid-sentence.
+- Headless Chrome screenshots freeze SMIL at roughly t=0, so to check a later keyframe, strip
+  the `<animate>` tags and force `opacity="1"` first.
