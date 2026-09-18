@@ -31,87 +31,6 @@ and a clinical data-capture platform for the emergency department at **NIMS Hyde
 
 <img src="assets/divider.svg" width="100%" alt="">
 
-## What I'm building
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### Guided Work — MR Assembler Training 🔒
-Hands-on industrial skills training in mixed reality on a **Meta Quest 3**. The trainee stands at a real bench; the equipment is virtual, the posture and reach are real. A supervisor can drop into the session from a laptop anywhere. Built so the expensive repetitions — steel, gas, shop time — happen somewhere they cost nothing.
-
-<img src="https://img.shields.io/badge/Unity-161B22?style=flat-square&logo=unity&logoColor=white"> <img src="https://img.shields.io/badge/C%23-161B22?style=flat-square&logo=csharp&logoColor=3FB950"> <img src="https://img.shields.io/badge/Quest%203-161B22?style=flat-square&logo=meta&logoColor=0081FB"> <img src="https://img.shields.io/badge/OpenXR-161B22?style=flat-square&logo=khronosgroup&logoColor=white">
-
-</td>
-<td width="50%" valign="top">
-
-### BCI · Motor Imagery → Flight 🔒
-Decodes **imagined movement** from EEG on an OpenBCI Cyton — no screen stimulus to stare at, so it works eyes open or closed, anywhere. Reads the sensorimotor rhythms produced when you imagine moving a hand or your feet, and flies a Crazyflie from the decoded intent.
-
-<img src="https://img.shields.io/badge/Python-161B22?style=flat-square&logo=python&logoColor=3FB950"> <img src="https://img.shields.io/badge/OpenBCI%20Cyton-161B22?style=flat-square&logoColor=white"> <img src="https://img.shields.io/badge/LSL-161B22?style=flat-square&logoColor=white"> <img src="https://img.shields.io/badge/MNE-161B22?style=flat-square&logoColor=white">
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### BrainEngine 🔒
-*A brain you can plug into anything.* An engine that generates real, paradigm-correct **synthetic EEG** on demand — so BCI development needs no headset, no subjects and no dataset hunting. Every generated epoch ships with its own ground-truth label.
-
-<img src="https://img.shields.io/badge/Python-161B22?style=flat-square&logo=python&logoColor=3FB950"> <img src="https://img.shields.io/badge/PyTorch-161B22?style=flat-square&logo=pytorch&logoColor=EE4C2C"> <img src="https://img.shields.io/badge/TypeScript-161B22?style=flat-square&logo=typescript&logoColor=3178C6">
-
-</td>
-<td width="50%" valign="top">
-
-### EEG-MOCAP 🔒
-Imagine a movement; a walking avatar does it. Motor-imagery EEG drives intent, professional motion capture supplies the body mechanics — so the avatar *walks and turns* instead of teleporting. Runs end to end on public datasets, no hardware required.
-
-<img src="https://img.shields.io/badge/Python-161B22?style=flat-square&logo=python&logoColor=3FB950"> <img src="https://img.shields.io/badge/PyTorch-161B22?style=flat-square&logo=pytorch&logoColor=EE4C2C"> <img src="https://img.shields.io/badge/MoCap-161B22?style=flat-square&logoColor=white">
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### TEER Bench Instrument 🔒
-A device that measures how healthy a layer of living cells is, by passing a tiny harmless signal through it (**trans-epithelial electrical resistance**). High resistance means the tissue barrier is tight; low means it leaks. Analogue front-end, C firmware, and the analysis layer above it.
-
-<img src="https://img.shields.io/badge/C-161B22?style=flat-square&logo=c&logoColor=A8B9CC"> <img src="https://img.shields.io/badge/ESP32-161B22?style=flat-square&logo=espressif&logoColor=E7352C"> <img src="https://img.shields.io/badge/Python-161B22?style=flat-square&logo=python&logoColor=3FB950"> <img src="https://img.shields.io/badge/LTspice-161B22?style=flat-square&logoColor=white">
-
-</td>
-<td width="50%" valign="top">
-
-### [NIMS Clinical Data Capture](https://github.com/BhavithParna/NIMS-APP)
-An eCRF for the emergency department at **NIMS Hyderabad**, built against real evidence of what goes wrong without one: 65 distinct values in a Yes/No field, SpO₂ of 0, a temperature of 4 °F, 35 collectors sharing one form login. Validation at the point of capture, not in cleanup.
-
-<img src="https://img.shields.io/badge/Python-161B22?style=flat-square&logo=python&logoColor=3FB950"> <img src="https://img.shields.io/badge/Supabase-161B22?style=flat-square&logo=supabase&logoColor=3FCF8E"> <img src="https://img.shields.io/badge/FHIR-161B22?style=flat-square&logoColor=white">
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### [VSAS](https://github.com/BhavithParna/VSAS)
-Vernier Spirometer Acquisition System — browser-based capture and analysis of respiratory flow from lab spirometry hardware.
-
-<img src="https://img.shields.io/badge/JavaScript-161B22?style=flat-square&logo=javascript&logoColor=F7DF1E"> <img src="https://img.shields.io/badge/Web%20Serial-161B22?style=flat-square&logoColor=white">
-
-</td>
-<td width="50%" valign="top">
-
-### [Portfolio](https://github.com/BhavithParna/Portfolio)
-The long-form version of this page — projects, writing and the parts that don't compress into a README.
-
-<img src="https://img.shields.io/badge/TypeScript-161B22?style=flat-square&logo=typescript&logoColor=3178C6"> <img src="https://img.shields.io/badge/React-161B22?style=flat-square&logo=react&logoColor=61DAFB">
-
-</td>
-</tr>
-</table>
-
-<sub>🔒 = private repo. Ask me about any of them.</sub>
-
-<img src="assets/divider.svg" width="100%" alt="">
-
 ## The garage
 
 **Signals & neuro**
@@ -160,7 +79,7 @@ The long-form version of this page — projects, writing and the parts that don'
 
 ### Downhill
 
-Most of the above started as something I had no business attempting yet — no EEG background when I started with EEG, no Unity when the headset arrived. The trick has never been knowing the road. It's running it enough times that you stop braking where you don't need to.
+Most of that stack started as something I had no business attempting yet — no EEG background when I started with EEG, no Unity when the headset arrived. The trick has never been knowing the road. It's running it enough times that you stop braking where you don't need to.
 
 > *"There's no such thing as a car that can't be beaten."*
 
