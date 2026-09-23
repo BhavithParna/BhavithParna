@@ -24,8 +24,8 @@ jobs:
           # the action token (public contributions only) when the secret is unset.
           github_token: ${{ secrets.GH_PAT || github.token }}
           outputs: |
-            dist/snake.svg?palette=github-light&color_snake=#3FB950
-            dist/snake-dark.svg?palette=github-dark&color_snake=#3FB950
+            dist/snake-dark.svg?color_snake=#F5EBE0&color_dots=#2A1C12,#5C3D26,#8B5A2B,#C08552,#DDB892
+            dist/snake.svg?color_snake=#5C3D26&color_dots=#EFE4D6,#E6CCB2,#D4A373,#B07A45,#7A4A28
 
       - name: push to output branch
         uses: crazy-max/ghaction-github-pages@v4
