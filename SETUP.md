@@ -5,43 +5,33 @@ This is the GitHub **profile README** repo: it only shows up if the repo is name
 
 ## The look
 
-The whole profile is one image, `space.svg`, rendered by `tools/gen_space.py`:
+The whole profile is one animated image, `assets/profile.svg`, rendered by
+`tools/gen_profile.py` and committed. It borrows the portfolio's About page: the night sky
+(navy → deep night, an ember dusk at the horizon, film grain), the Big Dipper drawing itself
+in the corner, a shooting star every ~10 s, the name set like the site's wordmark (Playfair
+bold with a terracotta outline echo, italic ember "parna"), and along the bottom an
+automated iced-coffee station — a stepping conveyor, an espresso head that pours into each
+cup as it stops underneath, a straw dropped in at the next stop, cups rolling off the end.
+One cup every 2 s, eight stops, a 16 s loop.
 
-- **Top:** the name, stroke-drawn then filled with a moving shimmer, over drifting warm light,
-  orbit rings and rising dust.
-- **Middle:** the last year of contributions as a spiral galaxy. One star per day. Weeks run
-  along the arm from the core (a year ago) to the tip (today), and the seven weekday rows
-  run across it, so it's the contribution calendar wound into a spiral. Brighter, bigger
-  stars mean busier days. A comet rides the arm every 12 s and lights each day as it passes.
-  Today pulses at the tip.
-- **Bottom:** a planet's horizon, with the year's total written on it.
-
-`.github/workflows/space.yml` re-renders it every 12 hours and on every push, and publishes
-it to the `output` branch, which the README points at. Add a `GH_PAT` secret (classic
-token, `repo` scope) so the galaxy counts private contributions too:
+Re-render after editing (needs `fontTools`, `Pillow`, `numpy`):
 
 ```bash
-gh secret set GH_PAT --repo BhavithParna/BhavithParna
+python3 tools/gen_profile.py && git add assets/profile.svg && git commit -m "re-render"
 ```
 
-Local preview (uses your `gh` login for the data; writes the gitignored `assets/space.svg`):
-
-```bash
-python3 tools/gen_space.py
-```
-
-Palette constants and layout numbers sit at the top of the script. The lettering is baked
-into outlines from `tools/fonts/InstrumentSerif-Italic.ttf` (OFL), because an `<img>` SVG
-can't load web fonts. Needs `fontTools`, `Pillow`, `numpy`.
+Palette, timing (`STOPS`, `STEP`, `DWELL`, `POUR_STOP`, `STRAW_STOP`) and layout numbers sit
+at the top of the script. Fonts in `tools/fonts/` are the OFL faces the site uses (Playfair
+Display, JetBrains Mono, Caveat, Anton); the lettering is baked to outlines because an
+`<img>` SVG can't load web fonts.
 
 ## Rules for editing the SVG
 
-- **SMIL only** (`<animate>`, `<animateTransform>`, `<animateMotion>`). No CSS, no `<script>`.
-  That's what keeps the motion alive through GitHub's image proxy.
-- No `feTurbulence` or blur filters on anything that moves. Chrome re-renders the whole
-  image every frame. Grain is a small embedded PNG tile, and the nebula is overlapping
-  radial gradients.
-- The galaxy is drawn flat, then squashed by `scale(1 TILT)` for perspective, so anything
-  inside it renders `TILT` times shorter. Size stars up to compensate.
-- Headless screenshots need `svg.pauseAnimations(); svg.setCurrentTime(t)` on an inline SVG,
-  plus a short wait before capture, or you'll see frame 0.
+- **SMIL only** (`<animate>`, `<animateTransform>`). No CSS, no `<script>`. That's what keeps
+  the motion alive through GitHub's image proxy.
+- No filters on anything that moves. Grain is a small embedded PNG tile; glows are radial
+  gradients.
+- Every moving part shares the 2 s step phase, so a new element only needs `dur="2s"` (or
+  the 16 s cup period with `begin="-2s × index"`) to stay in sync with the belt.
+- Headless previews: inline the SVG, then `svg.pauseAnimations(); svg.setCurrentTime(t)` and
+  wait a beat before capturing, or you'll see frame 0.
